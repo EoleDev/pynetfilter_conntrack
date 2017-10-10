@@ -1,7 +1,8 @@
+from builtins import object
 from pynetfilter_conntrack import \
     IPPROTO_TCP, TCP_CONNTRACK_TIME_WAIT, PF_INET, PF_INET6
 
-class Filter:
+class Filter(object):
     def __init__(self):
         self.start = 0
         self.size = None

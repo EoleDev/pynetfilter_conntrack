@@ -1,3 +1,4 @@
+from builtins import range
 from ctypes import string_at
 from struct import pack, unpack
 from sys import hexversion
@@ -32,10 +33,10 @@ def raw2long(data, big_endian):
     """
     assert 1 <= len(data) <= 16   # arbitrary limit: 8..128 bits
     if big_endian:
-        INDEXES = xrange(len(data)-1,-1,-1)
+        INDEXES = range(len(data)-1,-1,-1)
     else:
-        INDEXES = xrange(len(data))
-    shift = 0L
+        INDEXES = range(len(data))
+    shift = 0
     value = 0
     for index in INDEXES:
         byte = ord(data[index])
@@ -60,15 +61,15 @@ def __int16_to_uint16_old(n):
 
 def __int32_to_uint32_old(n):
     if n < 0:
-        return 0x100000000L + n
+        return 0x100000000 + n
     else:
-        return long(n)
+        return int(n)
 
 def __int16_to_uint16_new(n):
     return n & 0xFFFF
 
 def __int32_to_uint32_new(n):
-    return n & 0xFFFFFFFFL
+    return n & 0xFFFFFFFF
 
 if hexversion < 0x2040000:
     int16_to_uint16 = __int16_to_uint16_old

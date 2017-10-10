@@ -1,3 +1,4 @@
+from builtins import object
 from pynetfilter_conntrack import NFCT_Q_CREATE, NFCT_T_UNKNOWN
 from pynetfilter_conntrack.ctypes_errno import get_errno
 from os import strerror

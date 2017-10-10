@@ -1,3 +1,4 @@
+from builtins import object
 from pynetfilter_conntrack import \
     nfct_open, nfct_close
 from pynetfilter_conntrack.ctypes_errno import get_errno

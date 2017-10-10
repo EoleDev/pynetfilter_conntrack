@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Installer: use --setuptools to use setuptools
 
+from builtins import map
 from os import path
 import sys
 from imp import load_source
@@ -20,7 +21,7 @@ LONG_DESCRIPTION = open("README.rst").read() + open("INSTALL").read() + open("Ch
 KEYWORDS = "netfilter conntrack ctypes firewall"
 REQUIRES = ("ctypes>=0.9.6", "IPy>=0.50")
 
-CLASSIFIERS = filter(None, map(str.strip,
+CLASSIFIERS = [_f for _f in map(str.strip,
 """
 Development Status :: 4 - Beta
 Natural Language :: English
@@ -33,7 +34,7 @@ Programming Language :: Python
 Topic :: Software Development :: Libraries :: Python Modules
 Topic :: System :: Networking :: Firewalls
 Topic :: System :: Networking :: Monitoring
-""".splitlines()))
+""".splitlines()) if _f]
 
 option = {}
 if use_setuptools:

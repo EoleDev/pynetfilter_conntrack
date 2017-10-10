@@ -13,7 +13,7 @@ def event_cb(msgtype, ct, data):
         return NFCT_CB_STOP
 
     entry = ConntrackEntry(data, ct, msgtype, destroy=False)
-    print entry
+    print(entry)
 
     return NFCT_CB_CONTINUE
 
@@ -23,6 +23,6 @@ def main():
     try:
         conntrack.catch(event_cb)
     except KeyboardInterrupt:
-        print "Interrupted."
+        print("Interrupted.")
 
 main()
